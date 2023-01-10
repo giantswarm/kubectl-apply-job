@@ -1,0 +1,77 @@
+{{- define "kubectlApplyJob.job.tpl" -}}
+{{- $jobName := include "applyJob.name" . -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $jobName | quote }}
+  namespace: {{ .Release.Namespace | quote }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-1"
+    {{- include "applyJob.annotations" . | nindent 4 }}
+  labels:
+    {{- include "applyJob.defaultLabels" . | nindent 4 }}
+spec:
+  swag:
+  - mega
+  template:
+    metadata:
+      labels:
+        {{- include "applyJob.defaultLabels" . | nindent 8 }}
+        ding: dong
+    spec:
+      serviceAccountName: {{ $jobName | quote }}
+      securityContext:
+        runAsUser: {{ include "applyJob.securityContext.runAsUser" . }}
+        runAsGroup: {{ include "applyJob.securityContext.runAsGroup" . }}
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: kubectl
+        image: {{ include "applyJob.containerImage" . | quote }}
+        imagePullPolicy: {{ include "applyJob.image.pullPolicy" . }}
+        command:
+        - sh
+        - -c
+        - |
+          set -o errexit ; set -o xtrace ; set -o nounset
+
+          # piping stderr to stdout means kubectl's errors are surfaced
+          # in the pod's logs.
+          kubectl apply --server-side=true --field-manager='kubectl-client-side-apply' --force-conflicts -f /data/ 2>&1
+        volumeMounts:
+        {{ range .Values.kubectlApplyJob.files }}
+        {{- $fileName := base . -}}
+        {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
+        {{- $cmName := printf "%s-%s" $jobName $baseName | replace "+" "_" | trunc 63 | trimSuffix "-" | lower -}}
+        - name: {{ $cmName | quote }}
+          mountPath: {{ printf "/data/%s" $fileName | quote }}
+          subPath: {{ $fileName | quote }}
+        {{ end -}}
+        resources: {{- (include "applyJob.resources" .) | nindent 10 }}
+      volumes:
+      {{ range .Values.kubectlApplyJob.files }}
+      {{- $fileName := base . -}}
+      {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
+      {{- $cmName := printf "%s-%s" $jobName $baseName | replace "+" "_" | trunc 63 | trimSuffix "-" | lower -}}
+      - name: {{ $cmName | quote }}
+        configMap:
+          name: {{ $cmName | quote }}
+          items:
+          - key: {{ $fileName | quote }}
+            path: {{ $fileName | quote }}
+      {{ end -}}
+      restartPolicy: Never
+  backoffLimit: {{ include "applyJob.backoffLimit" . }}
+---
+{{- end }}
+
+{{ define "kubectlApplyJob.job" }}
+{{ include "kubectlApplyJob.configmap.tpl" . }}
+{{ include "kubectlApplyJob.np.tpl" . }}
+{{ include "kubectlApplyJob.psp.tpl" . }}
+{{ include "kubectlApplyJob.rbac.tpl" . }}
+{{ include "kubectlApplyJob.sa.tpl" . }}
+{{ include "kubectlApplyJob.job.tpl" . }}
+{{ end }}

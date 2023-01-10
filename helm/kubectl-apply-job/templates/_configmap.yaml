@@ -1,0 +1,28 @@
+{{- define "kubectlApplyJob.configmap.tpl" -}}
+{{- if empty .Values.kubectlApplyJob.files -}}
+{{- fail "Please provide a list of files to apply through the kubectl-apply-job in your values using kubectlApplyJob.files" -}}
+{{- end -}}
+{{- $jobName := include "applyJob.name" . -}}
+{{- range .Values.kubectlApplyJob.files }}
+{{- $fileName := base . -}}
+{{- $baseName := trimSuffix (ext $fileName) $fileName -}}
+{{- $cmName := printf "%s-%s" $jobName $baseName | replace "+" "_" | trunc 63 | trimSuffix "-" | lower -}}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $cmName | quote }}
+  namespace: {{ $.Release.Namespace | quote }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-5"
+    {{- include "applyJob.annotations" $ | nindent 4 }}
+  labels:
+    {{- include "applyJob.defaultLabels" $ | nindent 4 }}
+    filename: {{ $fileName | quote }}
+data:
+  {{ $fileName }}: |
+{{ tpl ( $.Files.Get . ) $ | indent 4 }}
+{{- end }}
+---
+{{- end }}

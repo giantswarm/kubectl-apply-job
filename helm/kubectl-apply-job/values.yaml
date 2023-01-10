@@ -1,0 +1,31 @@
+kubectlApplyJob:
+  # A list of paths to apply through the Job
+  files: []
+  image:
+    registry: quay.io
+    repository: giantswarm/docker-kubectl
+    tag: 1.26.0
+    pullPolicy: IfNotPresent
+
+  # backoffLimit
+  # setting this higher means the creation Job is less likely to be marked
+  # as failed.
+  backoffLimit: 10
+
+  # resources
+  resources:
+    # resources.requests
+    # Minimum resources requested for the Job.
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+  securityContext:
+    runAsGroup: 1000
+    runAsUser: 1000
+
+  podSecurityPolicy:
+    enabled: true
