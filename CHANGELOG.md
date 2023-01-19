@@ -7,6 +7,9 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.1.0] - 2023-01-19
+
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/tree/main
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/giantswarm/kubectl-apply-job/releases/tag/v0.1.0
