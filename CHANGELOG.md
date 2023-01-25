@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.1.1] - 2023-01-25
+
 ### Fixed
 
 - Change evaluation of .Values.global for container image registry
@@ -15,5 +17,6 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/kubectl-apply-job/releases/tag/v0.1.0
