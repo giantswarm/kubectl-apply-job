@@ -46,8 +46,10 @@
 {{- if (get (include "applyJob.image" . | fromYaml) "registry") -}}
 {{- $registry = get (include "applyJob.image" . | fromYaml) "registry" -}}
 {{- end -}}
-{{- if and .Values.global (and .Values.global.image .Values.global.image.registry) -}}
+{{- if and .Values.global -}}
+{{- if and .Values.global.image .Values.global.image.registry -}}
 {{- $registry = .Values.global.image.registry -}}
+{{- end -}}
 {{- end -}}
 {{- $repository := get (include "applyJob.image" . | fromYaml) "repository" | default "giantswarm/docker-kubectl" -}}
 {{- $tag := get (include "applyJob.image" . | fromYaml) "tag" | toString | default "1.26.0" -}}
