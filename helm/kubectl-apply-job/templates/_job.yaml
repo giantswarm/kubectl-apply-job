@@ -12,8 +12,6 @@ metadata:
   labels:
     {{- include "applyJob.defaultLabels" . | nindent 4 }}
 spec:
-  swag:
-  - mega
   template:
     metadata:
       labels:
