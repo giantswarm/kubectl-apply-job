@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Change evaluation of .Values.global for container image registry
+
 ## [0.1.0] - 2023-01-19
 
 Initial Release
