@@ -8,6 +8,7 @@ metadata:
   annotations:
     # create hook dependencies in the right order
     "helm.sh/hook-weight": "-1"
+    "ignore-check.kube-linter.io/no-read-only-root-fs": "kubectl writes temporary files"
     {{- include "applyJob.annotations" . | nindent 4 }}
   labels:
     {{- include "applyJob.defaultLabels" . | nindent 4 }}

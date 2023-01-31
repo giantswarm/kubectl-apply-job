@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Add kube-linter `ignore-check.kube-linter.io/no-read-only-root-fs: "kubectl writes temporary files"` annotation to Job
+
 ## [0.2.0] - 2023-01-31
 
 ### Added
