@@ -16,12 +16,15 @@ spec:
     metadata:
       labels:
         {{- include "applyJob.defaultLabels" . | nindent 8 }}
-        ding: dong
     spec:
       serviceAccountName: {{ $jobName | quote }}
       securityContext:
         runAsUser: {{ include "applyJob.securityContext.runAsUser" . }}
         runAsGroup: {{ include "applyJob.securityContext.runAsGroup" . }}
+        {{- if include "applyJob.securityContext.seccompProfileType" . }}
+        seccompProfile:
+          type: {{ include "applyJob.securityContext.seccompProfileType" . }}
+        {{- end }}
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
@@ -48,6 +51,13 @@ spec:
           subPath: {{ $fileName | quote }}
         {{ end -}}
         resources: {{- (include "applyJob.resources" .) | nindent 10 }}
+        securityContext:
+          runAsUser: {{ include "applyJob.securityContext.runAsUser" . }}
+          runAsGroup: {{ include "applyJob.securityContext.runAsGroup" . }}
+          {{- if include "applyJob.securityContext.seccompProfileType" . }}
+          seccompProfile:
+            type: {{ include "applyJob.securityContext.seccompProfileType" . }}
+          {{- end }}
       volumes:
       {{ range .Values.kubectlApplyJob.files }}
       {{- $fileName := base . -}}

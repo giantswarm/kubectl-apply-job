@@ -19,12 +19,16 @@
 {{ get (include "applyJob.securityContext" . | fromYaml) "runAsGroup" | default 1000 }}
 {{- end -}}
 
+{{- define "applyJob.securityContext.seccompProfileType" -}}
+{{ get (include "applyJob.securityContext" . | fromYaml) "seccompProfileType" | default "" }}
+{{- end -}}
+
 {{- define "applyJob.podSecurityPolicy.enabled" -}}
 {{- $pspEnabled := true -}}
-{{- if .Values.podSecurityPolicy -}}
+{{- if and .Values.podSecurityPolicy (hasKey .Values.podSecurityPolicy "enabled") -}}
 {{ $pspEnabled = .Values.podSecurityPolicy.enabled }}
 {{- end -}}
-{{- if and .Values.kubectlApplyJob .Values.kubectlApplyJob.podSecurityPolicy -}}
+{{- if and (and .Values.kubectlApplyJob .Values.kubectlApplyJob.podSecurityPolicy) (hasKey .Values.kubectlApplyJob.podSecurityPolicy "enabled") -}}
 {{ $pspEnabled = .Values.kubectlApplyJob.podSecurityPolicy.enabled }}
 {{- end -}}
 {{- and $pspEnabled (.Capabilities.APIVersions.Has "policy/v1beta1") }}
@@ -101,4 +105,24 @@ giantswarm.io/service-type: "managed"
 {{- define "applyJob.selectorLabels" -}}
 app.kubernetes.io/name: "{{ template "applyJob.name" . }}"
 app.kubernetes.io/instance: "{{ template "applyJob.name" . }}"
+{{- end -}}
+
+{{- define "applyJob.podSecurityPolicy" -}}
+{{- (get (include "applyJob.Values" . | fromYaml) "podSecurityPolicy" | toYaml) | default dict }}
+{{- end -}}
+
+{{- define "applyJob.podSecurityPolicy.annotations" -}}
+{{- with (get (include "applyJob.podSecurityPolicy" . | fromYaml) "annotations") -}}
+{{- range $key, $value := . }}
+{{ $key }}: {{ $value | quote }}
+{{- end }}
+{{- end -}}
+{{- end -}}
+
+{{- define "applyJob.podSecurityPolicy.labels" -}}
+{{- with (get (include "applyJob.podSecurityPolicy" . | fromYaml) "labels") -}}
+{{- range $key, $value := . }}
+{{ $key }}: {{ $value | quote }}
+{{- end }}
+{{- end -}}
 {{- end -}}

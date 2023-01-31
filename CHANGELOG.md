@@ -7,6 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Additional PodSecurityPolicy annotations and labels through values
+- Pod and container seccomp type value
+
 ## [0.1.1] - 2023-01-25
 
 ### Fixed
