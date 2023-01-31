@@ -8,8 +8,10 @@ metadata:
     # create hook dependencies in the right order
     "helm.sh/hook-weight": "-6"
     {{- include "applyJob.annotations" . | nindent 4 }}
+    {{- include "applyJob.podSecurityPolicy.annotations" . | indent 4 }}
   labels:
     {{- include "applyJob.defaultLabels" . | nindent 4 }}
+    {{- include "applyJob.podSecurityPolicy.labels" . | indent 4 }}
 spec:
   privileged: false
   runAsUser:
