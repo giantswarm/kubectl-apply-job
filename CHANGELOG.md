@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded,hook-failed"` annotation
+
 ## [0.2.1] - 2023-01-31
 
 ### Added
