@@ -128,7 +128,7 @@ app.kubernetes.io/instance: "{{ template "applyJob.name" . }}"
 
 {{- define "applyJob.enableCiliumNetworkPolicy" -}}
 {{- if hasKey .Values "ciliumNetworkPolicy" -}}
-{{- if(hasKey .Values.ciliumNetworkPolicy "enabled") -}}
+{{- if hasKey .Values.ciliumNetworkPolicy "enabled" -}}
 {{ .Values.ciliumNetworkPolicy.enabled }}
 {{- end -}}
 {{- end -}}
