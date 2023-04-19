@@ -31,3 +31,6 @@ kubectlApplyJob:
     enabled: true
     labels: {}
     annotations: {}
+
+ciliumNetworkPolicy:
+  enabled: false
