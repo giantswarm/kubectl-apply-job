@@ -33,4 +33,30 @@ spec:
   - Egress
   - Ingress
 ---
+{{- if eq (include "applyJob.enableCiliumNetworkPolicy" .) "true" }}
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: {{ include "applyJob.name" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  annotations:
+    # create hook dependencies in the right order
+    "helm.sh/hook-weight": "-7"
+    {{- include "applyJob.annotations" . | nindent 4 }}
+  labels:
+    {{- include "applyJob.defaultLabels" . | nindent 4 }}
+spec:
+  endpointSelector:
+    matchLabels:
+      {{- include "applyJob.selectorLabels" . | nindent 6 }}
+  egress:
+  - toEntities:
+    - kube-apiserver
+    toPorts:
+    - ports:
+      - port: "443"
+    - ports:
+      - port: "6443"
+---
+{{- end }}
 {{- end }}
