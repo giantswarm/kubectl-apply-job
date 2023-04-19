@@ -33,7 +33,7 @@ spec:
   - Egress
   - Ingress
 ---
-{{ if .Values.ciliumNetworkPolicy.enabled }}
+{{- if eq (include "applyJob.enableCiliumNetworkPolicy" .) "true" }}
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
