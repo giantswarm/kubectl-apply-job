@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.3.1] - 2023-04-19
+
 ### Changed
 
 - Fix ciliumNetworkPolicy condition
@@ -47,7 +49,8 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.2.2...v0.3.0
 [0.2.2]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.2.0...v0.2.1
