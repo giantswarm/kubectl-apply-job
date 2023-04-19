@@ -29,3 +29,5 @@ kubectlApplyJob:
 
   podSecurityPolicy:
     enabled: true
+    labels: {}
+    annotations: {}
