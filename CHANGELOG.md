@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Add `node-role.kubernetes.io/control-plane:NoSchedule` to Job tolerations
+
 ## [0.3.1] - 2023-04-19
 
 ### Changed
