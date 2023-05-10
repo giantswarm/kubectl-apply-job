@@ -20,6 +20,7 @@ spec:
     spec:
       serviceAccountName: {{ $jobName | quote }}
       securityContext:
+        runAsNonRoot: true
         runAsUser: {{ include "applyJob.securityContext.runAsUser" . }}
         runAsGroup: {{ include "applyJob.securityContext.runAsGroup" . }}
         {{- if include "applyJob.securityContext.seccompProfileType" . }}
@@ -57,6 +58,11 @@ spec:
         {{ end -}}
         resources: {{- (include "applyJob.resources" .) | nindent 10 }}
         securityContext:
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
           runAsUser: {{ include "applyJob.securityContext.runAsUser" . }}
           runAsGroup: {{ include "applyJob.securityContext.runAsGroup" . }}
           {{- if include "applyJob.securityContext.seccompProfileType" . }}
