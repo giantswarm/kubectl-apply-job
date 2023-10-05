@@ -31,7 +31,7 @@
 {{- if and (and .Values.kubectlApplyJob .Values.kubectlApplyJob.podSecurityPolicy) (hasKey .Values.kubectlApplyJob.podSecurityPolicy "enabled") -}}
 {{ $pspEnabled = .Values.kubectlApplyJob.podSecurityPolicy.enabled }}
 {{- end -}}
-{{- and $pspEnabled (.Capabilities.APIVersions.Has "policy/v1beta1") }}
+{{- and (not .Values.global.podSecurityStandards.enforced) $pspEnabled (.Capabilities.APIVersions.Has "policy/v1beta1") }}
 {{- end -}}
 
 {{- define "applyJob.image" -}}

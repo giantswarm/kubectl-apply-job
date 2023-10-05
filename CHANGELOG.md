@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Do not install PodSecurityPolicy resources if `global.podSecurityStandards.enforced` is set to `true`
+
 ## [0.5.0] - 2023-05-10
 
 ### Changed
