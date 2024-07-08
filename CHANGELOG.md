@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Set `readOnlyRootFilesystem: true` for kubectl container.
+
 ## [0.7.0] - 2023-12-12
 
 ### Changed
