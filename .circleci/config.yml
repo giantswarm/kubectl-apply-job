@@ -5,15 +5,19 @@ orbs:
 workflows:
   build:
     jobs:
-      - architect/push-to-app-catalog:
-          name: package and push chart
-          context: architect
-          app_catalog: giantswarm-playground-catalog
-          app_catalog_test: giantswarm-playground-test-catalog
-          chart: kubectl-apply-job
-          executor: "app-build-suite"
-          skip_conftest_deprek8ion: true
+    - architect/push-to-app-catalog:
+        name: package and push chart
+        context: architect
+        app_catalog: giantswarm-playground-catalog
+        app_catalog_test: giantswarm-playground-test-catalog
+        chart: kubectl-apply-job
+        executor: app-build-suite
+        skip_conftest_deprek8ion: true
           # Trigger job on git tag.
-          filters:
-            tags:
-              only: /^v.*/
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
