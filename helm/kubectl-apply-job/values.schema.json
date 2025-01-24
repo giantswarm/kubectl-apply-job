@@ -36,20 +36,6 @@
                         }
                     }
                 },
-                "podSecurityPolicy": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "type": "object"
-                        },
-                        "enabled": {
-                            "type": "boolean"
-                        },
-                        "labels": {
-                            "type": "object"
-                        }
-                    }
-                },
                 "resources": {
                     "type": "object",
                     "properties": {
@@ -85,6 +71,9 @@
                         },
                         "runAsUser": {
                             "type": "integer"
+                        },
+                        "seccompProfileType": {
+                            "type": "string"
                         }
                     }
                 }
