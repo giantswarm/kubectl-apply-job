@@ -9,6 +9,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Changed
 
+- Update Update gsoci.azurecr.io/giantswarm/docker-kubectl Docker tag to v1.32.1
 - Set `securityContext.seccompProfileType: RuntimeDefault` by default for kubectl Job.
 
 ### Removed
