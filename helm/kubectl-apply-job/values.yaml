@@ -26,11 +26,7 @@ kubectlApplyJob:
   securityContext:
     runAsGroup: 1000
     runAsUser: 1000
-
-  podSecurityPolicy:
-    enabled: true
-    labels: {}
-    annotations: {}
+    seccompProfileType: RuntimeDefault
 
 ciliumNetworkPolicy:
   enabled: false

@@ -7,6 +7,14 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Set `securityContext.seccompProfileType: RuntimeDefault` by default for kubectl Job.
+
+### Removed
+
+- Remove PSP.
+
 ## [0.8.0] - 2024-07-08
 
 ### Changed

@@ -89,7 +89,6 @@ spec:
 {{ define "kubectlApplyJob.job" }}
 {{ include "kubectlApplyJob.configmap.tpl" . }}
 {{ include "kubectlApplyJob.np.tpl" . }}
-{{ include "kubectlApplyJob.psp.tpl" . }}
 {{ include "kubectlApplyJob.rbac.tpl" . }}
 {{ include "kubectlApplyJob.sa.tpl" . }}
 {{ include "kubectlApplyJob.job.tpl" . }}
