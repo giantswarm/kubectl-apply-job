@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.9.0] - 2025-01-24
+
 ### Changed
 
 - Update Update gsoci.azurecr.io/giantswarm/docker-kubectl Docker tag to v1.32.1
@@ -88,7 +90,8 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.5.0...v0.6.0
