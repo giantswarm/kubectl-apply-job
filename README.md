@@ -15,6 +15,7 @@ This helm charty can be used to easily generate a Job which executes `kubectl ap
 - Add at least these additional values to your `values.yaml`
 
       kubectlApplyJob:
+        enabled: true
         files:
         - path/to/file-1.yaml
         - path/to/file-2.yaml
