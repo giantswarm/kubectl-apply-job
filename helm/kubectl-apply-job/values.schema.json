@@ -16,6 +16,9 @@
                 "backoffLimit": {
                     "type": "integer"
                 },
+                "enabled": {
+                    "type": "boolean"
+                },
                 "files": {
                     "type": "array"
                 },

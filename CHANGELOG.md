@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Allow disabling the Job through values.
+
 ## [0.9.0] - 2025-01-24
 
 ### Changed

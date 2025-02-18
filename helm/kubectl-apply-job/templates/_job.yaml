@@ -87,9 +87,11 @@ spec:
 {{- end }}
 
 {{ define "kubectlApplyJob.job" }}
+{{- if .Values.kubectlApplyJob.enabled }}
 {{ include "kubectlApplyJob.configmap.tpl" . }}
 {{ include "kubectlApplyJob.np.tpl" . }}
 {{ include "kubectlApplyJob.rbac.tpl" . }}
 {{ include "kubectlApplyJob.sa.tpl" . }}
 {{ include "kubectlApplyJob.job.tpl" . }}
+{{ end }}
 {{ end }}
