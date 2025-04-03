@@ -50,7 +50,7 @@ spec:
         {{ range .Values.kubectlApplyJob.files }}
         {{- $fileName := base . -}}
         {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
-        {{- $cmName := printf "%s-%s" $jobName $baseName | replace "+" "_" | trunc 63 | trimSuffix "-" | lower -}}
+        {{- $cmName := printf "%s-%s" $jobName $baseName | replace "." "-" | replace "+" "-" | trunc 63 | trimSuffix "-" | lower -}}
         - name: {{ $cmName | quote }}
           mountPath: {{ printf "/data/%s" $fileName | quote }}
           subPath: {{ $fileName | quote }}
@@ -73,7 +73,7 @@ spec:
       {{ range .Values.kubectlApplyJob.files }}
       {{- $fileName := base . -}}
       {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
-      {{- $cmName := printf "%s-%s" $jobName $baseName | replace "+" "_" | trunc 63 | trimSuffix "-" | lower -}}
+      {{- $cmName := printf "%s-%s" $jobName $baseName | replace "." "-" | replace "+" "-" | trunc 63 | trimSuffix "-" | lower -}}
       - name: {{ $cmName | quote }}
         configMap:
           name: {{ $cmName | quote }}

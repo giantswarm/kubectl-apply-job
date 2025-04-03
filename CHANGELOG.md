@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Allow filenames with dots.
+
 ## [0.9.1] - 2025-02-18
 
 ### Added
