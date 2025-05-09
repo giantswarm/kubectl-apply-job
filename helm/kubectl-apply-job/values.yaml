@@ -5,7 +5,7 @@ kubectlApplyJob:
   image:
     registry: gsoci.azurecr.io
     repository: giantswarm/docker-kubectl
-    tag: 1.32.3
+    tag: 1.33.0
     pullPolicy: IfNotPresent
 
   # backoffLimit
