@@ -20,7 +20,7 @@
 {{- end -}}
 
 {{- define "applyJob.securityContext.seccompProfileType" -}}
-{{ get (include "applyJob.securityContext" . | fromYaml) "seccompProfileType" | default "" }}
+{{ get (include "applyJob.securityContext" . | fromYaml) "seccompProfileType" | default "RuntimeDefault" }}
 {{- end -}}
 
 {{- define "applyJob.image" -}}
