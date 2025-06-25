@@ -12,6 +12,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Set seccompProfileType to `RuntimeDefault` for kubectl Job by default.
+- Update Update gsoci.azurecr.io/giantswarm/docker-kubectl Docker tag to v1.33.2
 
 ## [0.9.2] - 2025-04-03
 
