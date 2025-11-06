@@ -69,6 +69,7 @@ spec:
           seccompProfile:
             type: {{ include "applyJob.securityContext.seccompProfileType" . }}
           {{- end }}
+        ttlSecondsAfterFinished: 3600
       volumes:
       {{ range .Values.kubectlApplyJob.files }}
       {{- $fileName := base . -}}
