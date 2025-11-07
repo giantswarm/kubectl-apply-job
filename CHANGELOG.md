@@ -7,11 +7,15 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Fix ttlSecondsAfterFinished placement in template.
+
 ## [0.10.2] - 2025-11-07
 
 ### Changed
 
-- Fix ttlSecondsAfterFinished placement in template
+- Fix ttlSecondsAfterFinished placement in template.
 
 ## [0.10.1] - 2025-11-07
 

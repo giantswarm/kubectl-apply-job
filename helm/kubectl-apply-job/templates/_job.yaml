@@ -33,7 +33,6 @@ spec:
       - key: node-role.kubernetes.io/control-plane
         operator: Exists
         effect: NoSchedule
-      ttlSecondsAfterFinished: 3600
       containers:
       - name: kubectl
         image: {{ include "applyJob.containerImage" . | quote }}
@@ -84,6 +83,7 @@ spec:
       {{ end -}}
       restartPolicy: Never
   backoffLimit: {{ include "applyJob.backoffLimit" . }}
+  ttlSecondsAfterFinished: 3600
 ---
 {{- end }}
 
