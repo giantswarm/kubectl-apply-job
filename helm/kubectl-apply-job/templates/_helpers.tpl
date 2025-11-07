@@ -66,9 +66,13 @@ limits:
 {{- end -}}
 {{- end -}}
 
+{{- define "applyJob.jobNameSuffix" -}}
+{{- get (include "applyJob.Values" . | fromYaml) "jobNameSuffix" | default "kubectl-apply-job" }}
+{{- end -}}
+
 {{/* Create a default fully qualified app name. Truncated to meet DNS naming spec. */}}
 {{- define "applyJob.name" -}}
-{{- printf "%s-kubectl-apply-job" .Chart.Name | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%s" .Chart.Name (include "applyJob.jobNameSuffix" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/* Create chart name and version as used by the chart label. */}}

@@ -7,6 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Fix ConfigMap indentation and document separator.
+- Allow overriding the name suffix using the jobNameSuffix value.
+
 ## [0.10.3] - 2025-11-07
 
 ### Changed
