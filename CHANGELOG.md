@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.11.0] - 2025-11-07
+
 ### Changed
 
 - Fix ConfigMap indentation and document separator.
@@ -132,7 +134,8 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.3...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.3...v0.11.0
 [0.10.3]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.2...v0.10.3
 [0.10.2]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.1...v0.10.2
 [0.10.1]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.0...v0.10.1
