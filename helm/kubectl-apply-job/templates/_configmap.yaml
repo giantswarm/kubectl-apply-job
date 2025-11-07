@@ -7,7 +7,6 @@
 {{- $fileName := base . -}}
 {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
 {{- $cmName := printf "%s-%s" $jobName $baseName | replace "." "-" | replace "+" "-" | trunc 63 | trimSuffix "-" | lower -}}
----
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -22,7 +21,7 @@ metadata:
     filename: {{ $fileName | quote }}
 data:
   {{ $fileName }}: |
-{{ tpl ( $.Files.Get . ) $ | indent 4 }}
-{{- end }}
+    {{- tpl ( $.Files.Get . ) $ | nindent 4 }}
 ---
+{{- end }}
 {{- end }}
