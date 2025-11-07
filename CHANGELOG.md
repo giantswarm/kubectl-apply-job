@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Fix indent and document separation in configmap
+
 ## [0.11.0] - 2025-11-07
 
 ### Changed
