@@ -7,13 +7,16 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Set ttlSecondsAfterFinished to 3600.
+
 ## [0.10.0] - 2025-06-25
 
 ### Changed
 
 - Set seccompProfileType to `RuntimeDefault` for kubectl Job by default.
 - Update gsoci.azurecr.io/giantswarm/docker-kubectl Docker tag to v1.33.2
-- Set ttlSecondsAfterFinished to 3600.
 
 ## [0.9.2] - 2025-04-03
 
