@@ -1,5 +1,6 @@
 kubectlApplyJob:
   enabled: true
+  jobNameSuffix: ""
   # A list of paths to apply through the Job
   files: []
   image:
