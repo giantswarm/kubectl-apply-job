@@ -33,6 +33,7 @@ spec:
       - key: node-role.kubernetes.io/control-plane
         operator: Exists
         effect: NoSchedule
+      ttlSecondsAfterFinished: 3600
       containers:
       - name: kubectl
         image: {{ include "applyJob.containerImage" . | quote }}
@@ -69,7 +70,6 @@ spec:
           seccompProfile:
             type: {{ include "applyJob.securityContext.seccompProfileType" . }}
           {{- end }}
-        ttlSecondsAfterFinished: 3600
       volumes:
       {{ range .Values.kubectlApplyJob.files }}
       {{- $fileName := base . -}}
