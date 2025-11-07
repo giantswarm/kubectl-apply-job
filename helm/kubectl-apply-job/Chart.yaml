@@ -2,6 +2,6 @@ apiVersion: v2
 description: |
   A Helm chart containing a Job to apply kubernetes manifests using kubectl apply.
 name: kubectl-apply-job
-version: 0.10.2
+version: 0.10.3
 home: https://github.com/giantswarm/kubectl-apply-job
 type: library
