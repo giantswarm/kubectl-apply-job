@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Set ttlSecondsAfterFinished to 3600.
+
 ## [0.10.0] - 2025-06-25
 
 ### Changed
