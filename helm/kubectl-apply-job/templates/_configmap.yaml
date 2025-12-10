@@ -6,7 +6,8 @@
 {{- range .Values.kubectlApplyJob.files }}
 {{- $fileName := base . -}}
 {{- $baseName := trimSuffix (ext $fileName) $fileName -}}
-{{- $cmName := printf "%s-%s" $jobName $baseName | replace "." "-" | replace "+" "-" | trunc 63 | trimSuffix "-" | lower -}}
+{{- $cmName := printf "%s-%s" $jobName $baseName | replace "." "-" | replace "+" "-" | trunc 63 | trimSuffix "-" | lower }}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -22,6 +23,5 @@ metadata:
 data:
   {{ $fileName }}: |
     {{- tpl ( $.Files.Get . ) $ | nindent 4 }}
----
 {{- end }}
 {{- end }}
