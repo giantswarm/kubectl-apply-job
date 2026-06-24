@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Trim "." from .Chart.Name and .Chart.Version in additional templates
+
 ## [0.11.2] - 2026-06-24
 
 ### Changed
