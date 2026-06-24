@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.11.3] - 2026-06-24
+
 ### Changed
 
 - Trim "." from .Chart.Name and .Chart.Version in additional templates
@@ -151,7 +153,8 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.2...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.3...HEAD
+[0.11.3]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.2...v0.11.3
 [0.11.2]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.1...v0.11.2
 [0.11.1]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.0...v0.11.1
 [0.11.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.10.3...v0.11.0
