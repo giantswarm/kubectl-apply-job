@@ -9,6 +9,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [0.12.0] - 2026-06-24
 
+## [0.12.0] - 2026-06-24
+
 ### Changed
 
 - Move yaml document separators to bottom in ConfigMap template
@@ -160,6 +162,7 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 Initial Release
 
 [Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.12.0...v0.12.0
 [0.12.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.3...v0.12.0
 [0.11.3]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.2...v0.11.3
 [0.11.2]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.1...v0.11.2
