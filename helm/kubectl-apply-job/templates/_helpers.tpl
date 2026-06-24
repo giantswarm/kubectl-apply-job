@@ -72,12 +72,12 @@ limits:
 
 {{/* Create a default fully qualified app name. Truncated to meet DNS naming spec. */}}
 {{- define "applyJob.name" -}}
-{{- printf "%s-%s" .Chart.Name (include "applyJob.jobNameSuffix" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%s" (.Chart.Name | trimSuffix "-" | trimSuffix ".") (include "applyJob.jobNameSuffix" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/* Create chart name and version as used by the chart label. */}}
 {{- define "applyJob.chart" -}}
-{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%s" (.Chart.Name | trimSuffix "-" | trimSuffix ".") (.Chart.Version | trimSuffix "-" | trimSuffix ".") | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{- define "applyJob.defaultLabels" -}}
