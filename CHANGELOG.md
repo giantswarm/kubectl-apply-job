@@ -10,6 +10,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Trim "." from .Chart.Name and .Chart.Version in templates
+- Update gsoci.azurecr.io/giantswarm/docker-kubectl Docker tag to v1.36.2
 
 ## [0.11.1] - 2026-05-27
 
