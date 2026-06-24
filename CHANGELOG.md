@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Move yaml document separators to bottom in ConfigMap template
+
 ## [0.11.3] - 2026-06-24
 
 ### Changed

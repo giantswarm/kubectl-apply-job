@@ -1,0 +1,11 @@
+kubectlApplyJob:
+  enabled: true
+  # The list of files is overridden per scenario by verify.sh via --set.
+  files:
+  - files/crd-a.yaml
+  - files/crd-b.yaml
+  - files/crd-c.yaml
+
+# Toggled per scenario by verify.sh via --set.
+ciliumNetworkPolicy:
+  enabled: true

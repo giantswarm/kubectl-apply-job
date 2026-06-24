@@ -1,0 +1,13 @@
+apiVersion: v2
+name: consumer
+description: |
+  Test consumer chart used to render the kubectl-apply-job library chart so its
+  output can be verified (see ../verify.sh). Not published.
+version: 0.0.0
+type: application
+dependencies:
+- name: kubectl-apply-job
+  # Match whatever version the library chart currently declares so the test does
+  # not need to be bumped on every release.
+  version: ">=0.0.0-0"
+  repository: "file://../../helm/kubectl-apply-job"

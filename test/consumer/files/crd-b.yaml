@@ -1,0 +1,4 @@
+apiVersion: example.com/v1
+kind: Bar
+metadata:
+  name: bar-b
