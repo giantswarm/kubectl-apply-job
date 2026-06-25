@@ -7,10 +7,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "helm/kubectl-apply-job/**"
-      - "test/**"
-      - ".github/workflows/test-library-chart.yaml"
   merge_group: {}
 
 permissions:
