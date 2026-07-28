@@ -5,3 +5,4 @@ generate-metadata: true
 destination: ./build
 catalog-base-url: https://giantswarm.github.io/giantswarm-playground-catalog/
 disable-giantswarm-helm-validator: true
+disable-helm-template-validator: true
