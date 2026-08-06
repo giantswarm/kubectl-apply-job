@@ -12,7 +12,6 @@ workflows:
         app_catalog_test: giantswarm-playground-test-catalog
         chart: kubectl-apply-job
         executor: app-build-suite
-        skip_conftest_deprek8ion: true
           # Trigger job on git tag.
         filters:
           tags:
