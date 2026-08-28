@@ -5,3 +5,5 @@ name: kubectl-apply-job
 version: 0.12.0
 home: https://github.com/giantswarm/kubectl-apply-job
 type: library
+annotations:
+  io.giantswarm.application.team: cabbage

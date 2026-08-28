@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Add `io.giantswarm.application.team` annotation to the chart, required by app-build-suite check C0001.
+
 ## [0.12.0] - 2026-06-24
 
 ### Changed
