@@ -27,6 +27,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
   are named after the consuming chart, and stop pinning an example dependency version that goes
   stale on every release.
 
+### Removed
+
+- Remove the ClusterRole rule granting `jobs` under the core (`""`) API group. Jobs live in
+  `batch`, so the rule matched no resource and granted nothing. Present and inert since the
+  initial commit; the Job is created by Helm as a hook, and the pod only runs `kubectl apply`.
+
 ## [0.12.0] - 2026-06-24
 
 ### Changed

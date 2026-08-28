@@ -12,13 +12,6 @@ metadata:
     {{- include "applyJob.defaultLabels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - ""
-  resources:
-  - jobs
-  verbs:
-  - create
-  - delete
-- apiGroups:
   - apiextensions.k8s.io
   resources:
   - customresourcedefinitions
