@@ -21,6 +21,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
   are ignored: a library chart renders nothing of its own and carries no icon.
 - Give the test consumer chart a team annotation so the render test exercises the real path.
 
+### Removed
+
+- Remove the ClusterRole rule granting `jobs` under the core (`""`) API group. Jobs live in
+  `batch`, so the rule matched no resource and granted nothing. Present and inert since the
+  initial commit; the Job is created by Helm as a hook, and the pod only runs `kubectl apply`.
+
 ## [0.12.0] - 2026-06-24
 
 ### Changed
