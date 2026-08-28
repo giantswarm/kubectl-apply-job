@@ -86,6 +86,7 @@ app.kubernetes.io/instance: "{{ template "applyJob.name" . }}"
 app.kubernetes.io/managed-by: "{{ .Release.Service }}"
 app.kubernetes.io/component: {{ get (include "applyJob.Values" . | fromYaml) "name" | default "kubectl-apply-job" | quote }}
 helm.sh/chart: "{{ template "applyJob.chart" . }}"
+application.giantswarm.io/team: {{ index .Chart.Annotations "io.giantswarm.application.team" | quote }}
 giantswarm.io/service-type: "managed"
 {{- end -}}
 
