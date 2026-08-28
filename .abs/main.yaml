@@ -4,4 +4,6 @@ replace-app-version-with-git: false
 generate-metadata: true
 destination: ./build
 catalog-base-url: https://giantswarm.github.io/giantswarm-playground-catalog/
-disable-giantswarm-helm-validator: true
+# Icon checks are skipped: a library chart renders nothing of its own and never
+# appears in a UI app list, so it carries no icon.
+giantswarm-validator-ignored-checks: C0002,C0003,C0004

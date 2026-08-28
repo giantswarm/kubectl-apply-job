@@ -5,6 +5,10 @@ description: |
   output can be verified (see ../verify.sh). Not published.
 version: 0.0.0
 type: application
+# Mirrors a real consumer (kong-app, external-dns-app): the library reads this
+# annotation for the team label, since .Chart resolves to the consuming chart.
+annotations:
+  io.giantswarm.application.team: cabbage
 dependencies:
 - name: kubectl-apply-job
   # Match whatever version the library chart currently declares so the test does

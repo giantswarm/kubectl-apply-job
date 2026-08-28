@@ -7,6 +7,20 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Add `io.giantswarm.application.team` annotation and a matching `application.giantswarm.io/team`
+  label to the default label set. Note the label resolves against the *consuming* chart's
+  annotations, since `.Chart` in a library chart refers to the consumer.
+- Add `keywords` to `Chart.yaml`.
+
+### Changed
+
+- Re-enable the Giant Swarm helm validator in `.abs/main.yaml`, which was disabled entirely and so
+  ran neither `C0001 HasTeamLabel` nor `F0001 HasValuesSchema`. The icon checks (`C0002`-`C0004`)
+  are ignored: a library chart renders nothing of its own and carries no icon.
+- Give the test consumer chart a team annotation so the render test exercises the real path.
+
 ## [0.12.0] - 2026-06-24
 
 ### Changed
