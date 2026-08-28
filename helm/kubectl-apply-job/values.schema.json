@@ -22,6 +22,14 @@
                 "files": {
                     "type": "array"
                 },
+                "jobNameSuffix": {
+                    "type": "string",
+                    "description": "Suffix appended to the consuming chart's name to build the name of the Job and its ServiceAccount, ClusterRole and ClusterRoleBinding. Defaults to \"kubectl-apply-job\"."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Value of the app.kubernetes.io/component label on every rendered resource. Defaults to \"kubectl-apply-job\"."
+                },
                 "image": {
                     "type": "object",
                     "properties": {
