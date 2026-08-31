@@ -20,6 +20,12 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
   ran neither `C0001 HasTeamLabel` nor `F0001 HasValuesSchema`. The icon checks (`C0002`-`C0004`)
   are ignored: a library chart renders nothing of its own and carries no icon.
 - Give the test consumer chart a team annotation so the render test exercises the real path.
+- Document `jobNameSuffix` and `name` in `values.schema.json`. Both are read by the templates but
+  neither was described, so the schema was incomplete as the chart's API reference.
+- Rewrite the README: document every value, state that the bundled ClusterRole permits
+  CustomResourceDefinitions only, warn that the cluster-scoped ClusterRole and ClusterRoleBinding
+  are named after the consuming chart, and stop pinning an example dependency version that goes
+  stale on every release.
 
 ### Removed
 
