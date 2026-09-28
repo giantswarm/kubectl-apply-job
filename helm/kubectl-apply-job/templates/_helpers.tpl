@@ -77,7 +77,7 @@ limits:
 
 {{/* Create chart name and version as used by the chart label. */}}
 {{- define "applyJob.chart" -}}
-{{- printf "%s-%s" (.Chart.Name | trimSuffix "-" | trimSuffix ".") (.Chart.Version | trimSuffix "-" | trimSuffix ".") | replace "+" "_" | trunc 63 | trimSuffix "-" | trimSuffix "." -}}
+{{- printf "%s-%s" (.Chart.Name | trimSuffix "-" | trimSuffix ".") (.Chart.Version | trimSuffix "-" | trimSuffix ".") | replace "+" "_" | trunc 63 | trimAll "-._" -}}
 {{- end -}}
 
 {{- define "applyJob.defaultLabels" -}}
