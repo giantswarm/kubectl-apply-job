@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-10-20
+
 ### Changed
 
 - Update architect to v10.12.0 (giantswarm/kubectl-apply-job#204)
@@ -200,7 +202,8 @@ Correctly set `"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeede
 
 Initial Release
 
-[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.3...v0.12.0
 [0.11.3]: https://github.com/giantswarm/kubectl-apply-job/compare/v0.11.2...v0.11.3
