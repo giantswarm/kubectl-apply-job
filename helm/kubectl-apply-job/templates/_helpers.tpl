@@ -31,8 +31,16 @@
 {{ get (include "applyJob.image" . | fromYaml) "pullPolicy" | default "IfNotPresent" }}
 {{- end -}}
 
+{{/*
+Fallback image, used when the consuming chart sets no image. Consumers include
+the Job with their own context, so this chart's values.yaml defaults never apply
+to them. Keep this in sync with kubectlApplyJob.image in values.yaml; Renovate
+bumps both (see renovate.json5).
+*/}}
 {{- define "applyJob.containerImage" -}}
-{{- $registry := "quay.io" -}}
+{{- $registry := "gsoci.azurecr.io" -}}
+{{- /* renovate: datasource=docker depName=gsoci.azurecr.io/giantswarm/docker-kubectl */ -}}
+{{- $defaultTag := "1.37.0" -}}
 {{- if and .Values.image .Values.image.registry -}}
 {{- $registry = .Values.image.registry -}}
 {{- end -}}
@@ -45,7 +53,7 @@
 {{- end -}}
 {{- end -}}
 {{- $repository := get (include "applyJob.image" . | fromYaml) "repository" | default "giantswarm/docker-kubectl" -}}
-{{- $tag := get (include "applyJob.image" . | fromYaml) "tag" | toString | default "1.26.0" -}}
+{{- $tag := get (include "applyJob.image" . | fromYaml) "tag" | toString | default $defaultTag -}}
 {{ printf "%s/%s:%s" $registry $repository $tag }}
 {{- end -}}
 

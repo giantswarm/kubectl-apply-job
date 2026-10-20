@@ -14,6 +14,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Fixed
 
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
+- Default the Job image to `gsoci.azurecr.io/giantswarm/docker-kubectl:1.37.0` when the consuming chart sets no image.
+  The fallback was `quay.io/giantswarm/docker-kubectl:1.26.0`, which no longer pulls, so such consumers' Jobs were
+  stuck in `ImagePullBackOff`. The library's `values.yaml` default never applies to consumers, as they include the Job
+  with their own values. Renovate now bumps the fallback tag together with `values.yaml`, and `test/verify.sh` checks
+  that the two match.
 
 ## [0.13.0] - 2026-08-31
 
