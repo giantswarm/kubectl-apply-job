@@ -9,7 +9,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Changed
 
-- Update gsoci.azurecr.io/giantswarm/docker-kubectl to v1.37.1 (giantswarm/kubectl-apply-job#203)
+- Update gsoci.azurecr.io/giantswarm/docker-kubectl to v1.37.2 (giantswarm/kubectl-apply-job#203, giantswarm/kubectl-apply-job#225)
 
 ## [0.14.0] - 2026-10-20
 
