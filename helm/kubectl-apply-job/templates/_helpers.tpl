@@ -40,7 +40,7 @@ bumps both (see renovate.json5).
 {{- define "applyJob.containerImage" -}}
 {{- $registry := "gsoci.azurecr.io" -}}
 {{- /* renovate: datasource=docker depName=gsoci.azurecr.io/giantswarm/docker-kubectl */ -}}
-{{- $defaultTag := "1.37.0" -}}
+{{- $defaultTag := "1.37.1" -}}
 {{- if and .Values.image .Values.image.registry -}}
 {{- $registry = .Values.image.registry -}}
 {{- end -}}
