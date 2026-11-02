@@ -3,4 +3,15 @@
     // Base config - https://github.com/giantswarm/renovate-presets/blob/main/default.json5
     "github>giantswarm/renovate-presets:default.json5",
   ],
+  "customManagers": [
+    {
+      // The fallback image tag in _helpers.tpl applies to consumers that set no image
+      // (they never see this chart's values.yaml). Bump it together with values.yaml.
+      "customType": "regex",
+      "managerFilePatterns": ["/^helm/kubectl-apply-job/templates/_helpers\\.tpl$/"],
+      "matchStrings": [
+        "renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+) \\*/ -}}\\n\\{\\{- \\$defaultTag := \"(?<currentValue>[^\"]+)\" -}}",
+      ],
+    },
+  ],
 }

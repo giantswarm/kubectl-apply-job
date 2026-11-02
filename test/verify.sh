@@ -77,6 +77,19 @@ assert "2 files, cilium on"  8 2 8 --set ciliumNetworkPolicy.enabled=true  --set
 assert "3 files, cilium off" 8 3 8 --set ciliumNetworkPolicy.enabled=false --set "kubectlApplyJob.files={${THREE}}"
 assert "3 files, cilium on"  9 3 9 --set ciliumNetworkPolicy.enabled=true  --set "kubectlApplyJob.files={${THREE}}"
 
+# The consumer sets no image, so the Job must use the helper's fallback image. That
+# fallback must match the library's values.yaml default: consumers never see the
+# library's values.yaml, so a stale or unpullable fallback breaks them silently.
+echo "==> Checking the fallback image"
+want_image="$(yq '.kubectlApplyJob.image | .registry + "/" + .repository + ":" + .tag' "${LIBRARY_DIR}/values.yaml")"
+got_image="$(helm template "${RELEASE}" "${CONSUMER_DIR}" | yq ea 'select(.kind == "Job") | .spec.template.spec.containers[0].image' -)"
+if [[ "${got_image}" == "${want_image}" ]]; then
+  printf 'PASS  %-28s %s\n' "fallback image" "${got_image}"
+else
+  printf 'FAIL  %-28s %s (want %s, the values.yaml default)\n' "fallback image" "${got_image}" "${want_image}"
+  failures=$((failures + 1))
+fi
+
 echo
 if [[ "${failures}" -eq 0 ]]; then
   echo "All scenarios passed."
