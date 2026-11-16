@@ -1,34 +1,46 @@
 kubectlApplyJob:
+  # -- Render the Job.
   enabled: true
+  # -- Suffix appended to the consuming chart's name to build the name of the Job and its ServiceAccount, ClusterRole and ClusterRoleBinding. Defaults to "kubectl-apply-job".
   jobNameSuffix: ""
-  # A list of paths to apply through the Job
-  files: []
+  # -- Value of the app.kubernetes.io/component label on every rendered resource. Defaults to "kubectl-apply-job".
+  name: ""
+  # -- A list of paths to apply through the Job.
+  files: []  # @schema item: string
   image:
+    # -- Container image registry.
     registry: gsoci.azurecr.io
+    # -- Container image repository.
     repository: giantswarm/docker-kubectl
+    # -- Container image tag.
     tag: 1.37.2
+    # -- Container image pull policy.
     pullPolicy: IfNotPresent
 
-  # backoffLimit
-  # setting this higher means the creation Job is less likely to be marked
-  # as failed.
+  # -- Number of retries before the Job is marked as failed.
+  # Setting this higher means the creation Job is less likely to be marked as failed.
   backoffLimit: 10
 
-  # resources
-  resources:
-    # resources.requests
-    # Minimum resources requested for the Job.
-    requests:
-      cpu: 100m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
+  # -- Resources of the Job container.
+  resources:  # @schema additionalProperties: true
+    requests:  # @schema additionalProperties: true
+      cpu: 100m  # @schema type: [string, integer]
+      memory: 256Mi  # @schema type: [string, integer]
+    limits:  # @schema additionalProperties: true
+      cpu: 500m  # @schema type: [string, integer]
+      memory: 512Mi  # @schema type: [string, integer]
 
   securityContext:
-    runAsGroup: 1000
+    # -- User ID the Job container runs as.
     runAsUser: 1000
+    # -- Group ID the Job container runs as.
+    runAsGroup: 1000
+    # -- Seccomp profile type of the Job container.
     seccompProfileType: RuntimeDefault
 
+# -- Image registry override. The library reads `image.registry` from the consuming chart's values.
+image: {}  # @schema skipProperties: true; additionalProperties: true
+
 ciliumNetworkPolicy:
+  # -- Render a CiliumNetworkPolicy for the Job.
   enabled: false
