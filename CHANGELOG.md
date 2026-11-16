@@ -10,6 +10,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Update gsoci.azurecr.io/giantswarm/docker-kubectl to v1.37.2 (giantswarm/kubectl-apply-job#203, giantswarm/kubectl-apply-job#225)
+- Make the values schema strict and document the values, in preparation for generated CI.
+- Move the custom Renovate manager to `renovate-custom.json5`.
 
 ## [0.14.0] - 2026-10-20
 
